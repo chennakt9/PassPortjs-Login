@@ -13,7 +13,7 @@ require('./config/passport');
 //Connecting to mongoose
 mongoose.connect('mongodb://localhost:27017/passport-login',{useNewUrlParser: true });
 
-var db = mongoose.connection;
+let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("mongoose connected");
@@ -43,7 +43,7 @@ app.use(flash());
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
 
-const port = 3000 || process.env.PORT;
+const port = 3200 || process.env.PORT;
 app.listen(port,()=>{
-    console.log("Im am listening to you on the port 3000");
+    console.log("Im am listening to you on the port 3200");
 });
